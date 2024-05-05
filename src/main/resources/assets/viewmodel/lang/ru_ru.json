@@ -1,0 +1,16 @@
+{
+  "text.autoconfig.viewmodel.title": "Настройки View Model",
+  "text.autoconfig.viewmodel.category.Scale": "Размер и Позиция",
+  "text.autoconfig.viewmodel.category.Main Hand": "Вращение основной Руки",
+  "text.autoconfig.viewmodel.category.Off Hand": "Вращение второстепенной Руки",
+  "text.autoconfig.viewmodel.option.scale": "Размер",
+  "text.autoconfig.viewmodel.option.positionMainX": "Позиция основной руки по X",
+  "text.autoconfig.viewmodel.option.positionMainY": "Позиция основной руки по Y",
+  "text.autoconfig.viewmodel.option.positionMainZ": "Позиция основной руки по Z",
+  "text.autoconfig.viewmodel.option.rotationMainX": "Вращение основной руки по X",
+  "text.autoconfig.viewmodel.option.rotationMainY": "Вращение основной руки по Y",
+  "text.autoconfig.viewmodel.option.rotationMainZ": "Вращение основной руки по Z",
+  "text.autoconfig.viewmodel.option.rotationOffX": "Вращение второстепенной руки по X",
+  "text.autoconfig.viewmodel.option.rotationOffY": "Вращение второстепенной руки по Y",
+  "text.autoconfig.viewmodel.option.rotationOffZ": "Вращение второстепенной руки по Z"
+}
