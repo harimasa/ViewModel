@@ -3,36 +3,38 @@ package ru.matt.model;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.RotationAxis;
+import ru.matt.api.ViewModelConfig;
 import ru.matt.event.EventArmRenderer;
 import ru.matt.event.EventHeldItemRenderer;
-
-import static ru.matt.api.ClothConfigConfig.*;
-
 
 public class ViewModel {
 
     @EventHandler
     private void onHeldItemRender(EventHeldItemRenderer event) {
-        if (event.getHand() == Hand.MAIN_HAND) {
-            event.getStack().translate(positionMainX(), positionMainY(), positionMainZ());
-            event.getStack().scale(scale(), scale(), scale());
-            event.getStack().multiply(RotationAxis.POSITIVE_X.rotationDegrees(rotationMainX()));
-            event.getStack().multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotationMainY()));
-            event.getStack().multiply(RotationAxis.POSITIVE_Z.rotationDegrees(rotationMainZ()));
-        } else {
-            event.getStack().translate(-positionMainX(), positionMainY(), positionMainZ());
-            event.getStack().scale(scale(), scale(), scale());
-            event.getStack().multiply(RotationAxis.POSITIVE_X.rotationDegrees(rotationOffX()));
-            event.getStack().multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotationOffY()));
-            event.getStack().multiply(RotationAxis.POSITIVE_Z.rotationDegrees(rotationOffZ()));
+        if (ViewModelConfig.enabled) {
+            if (event.getHand() == Hand.MAIN_HAND) {
+                event.getStack().translate(ViewModelConfig.positionMainZ, ViewModelConfig.positionMainY, ViewModelConfig.positionMainZ);
+                event.getStack().scale(ViewModelConfig.scale, ViewModelConfig.scale, ViewModelConfig.scale);
+                event.getStack().multiply(RotationAxis.POSITIVE_X.rotationDegrees(ViewModelConfig.rotationMainX));
+                event.getStack().multiply(RotationAxis.POSITIVE_Y.rotationDegrees(ViewModelConfig.rotationMainY));
+                event.getStack().multiply(RotationAxis.POSITIVE_Z.rotationDegrees(ViewModelConfig.rotationMainZ));
+            } else {
+                event.getStack().translate(-ViewModelConfig.positionMainZ, ViewModelConfig.positionMainY, ViewModelConfig.positionMainZ);
+                event.getStack().scale(ViewModelConfig.scale, ViewModelConfig.scale, ViewModelConfig.scale);
+                event.getStack().multiply(RotationAxis.POSITIVE_X.rotationDegrees(ViewModelConfig.rotationOffX));
+                event.getStack().multiply(RotationAxis.POSITIVE_Y.rotationDegrees(ViewModelConfig.rotationOffY));
+                event.getStack().multiply(RotationAxis.POSITIVE_Z.rotationDegrees(ViewModelConfig.rotationOffZ));
+            }
         }
     }
 
     @EventHandler
     private void onRenderArm(EventArmRenderer arm) {
-        arm.getStack().translate(positionArmX(), positionArmY(), positionArmZ());
-        arm.getStack().multiply(RotationAxis.POSITIVE_X.rotationDegrees(rotationArmX()));
-        arm.getStack().multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotationArmY()));
-        arm.getStack().multiply(RotationAxis.POSITIVE_Z.rotationDegrees(rotationArmZ()));
+        if (ViewModelConfig.enabledArm) {
+            arm.getStack().translate(ViewModelConfig.positionArmX, ViewModelConfig.positionArmY, ViewModelConfig.positionArmZ);
+            arm.getStack().multiply(RotationAxis.POSITIVE_X.rotationDegrees(ViewModelConfig.rotationArmX));
+            arm.getStack().multiply(RotationAxis.POSITIVE_Y.rotationDegrees(ViewModelConfig.rotationArmY));
+            arm.getStack().multiply(RotationAxis.POSITIVE_Z.rotationDegrees(ViewModelConfig.rotationArmZ));
+        }
     }
 }
