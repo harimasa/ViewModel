@@ -4,6 +4,7 @@
   "text.autoconfig.viewmodel.category.Main Hand": "Main Hand Rotations",
   "text.autoconfig.viewmodel.category.Off Hand": "Off Hand Rotations",
   "text.autoconfig.viewmodel.category.Arm Settings": "Arm Settings",
+  "text.autoconfig.viewmodel.category.Special": "Special Settings",
   "text.autoconfig.viewmodel.option.enabled.@PrefixText": "Enabled?",
   "text.autoconfig.viewmodel.option.enabled": "Affect Items?",
   "text.autoconfig.viewmodel.option.scale.@PrefixText": "Scale Items",
@@ -29,5 +30,10 @@
   "text.autoconfig.viewmodel.option.positionArmX.@PrefixText": "Positions Arm",
   "text.autoconfig.viewmodel.option.positionArmX": "Position Arm at X",
   "text.autoconfig.viewmodel.option.positionArmY": "Position Arm at Y",
-  "text.autoconfig.viewmodel.option.positionArmZ": "Position Arm at Z"
+  "text.autoconfig.viewmodel.option.positionArmZ": "Position Arm at Z",
+  "text.autoconfig.viewmodel.option.enabledSpecial.@PrefixText": "Enable Special Settings?",
+  "text.autoconfig.viewmodel.option.enabledSpecial": "Enable?",
+  "text.autoconfig.viewmodel.option.nohands.@PrefixText": "Special Settings",
+  "text.autoconfig.viewmodel.option.nohands": "Disable Hands",
+  "text.autoconfig.viewmodel.option.hand1f": "Disable Hud"
 }

@@ -34,6 +34,15 @@ public abstract class MixinHeldItemRenderer {
 				matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotationOffY()));
 				matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(rotationOffZ()));
 			}
+			if (ClothConfigConfig.enabledSpecial()) {
+				if (ClothConfigConfig.nohands()) {
+					if (hand == Hand.MAIN_HAND) {
+						matrices.scale(0,0,0);
+					} else {
+						matrices.scale(0, 0, 0);
+					}
+				}
+			}
 		}
 	}
 
@@ -44,6 +53,15 @@ public abstract class MixinHeldItemRenderer {
 			matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(rotationArmX()));
 			matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotationArmY()));
 			matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(rotationArmZ()));
+		}
+		if (ClothConfigConfig.enabledSpecial()) {
+			if (ClothConfigConfig.nohands()) {
+				if (hand == Hand.MAIN_HAND) {
+					matrices.scale(0,0,0);
+				} else {
+					matrices.scale(0, 0, 0);
+				}
+			}
 		}
 	}
 }

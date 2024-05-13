@@ -6,7 +6,8 @@
 		"IHeldItemRenderer"
 	],
 	"client": [
-		"MixinHeldItemRenderer"
+		"MixinHeldItemRenderer",
+		"GameRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

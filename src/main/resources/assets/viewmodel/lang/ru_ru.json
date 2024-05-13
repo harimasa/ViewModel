@@ -4,6 +4,7 @@
   "text.autoconfig.viewmodel.category.Main Hand": "Вращение основной Руки",
   "text.autoconfig.viewmodel.category.Off Hand": "Вращение второстепенной Руки",
   "text.autoconfig.viewmodel.category.Arm Settings": "Настройки руки",
+  "text.autoconfig.viewmodel.category.Special": "Специальные настройки",
   "text.autoconfig.viewmodel.option.enabled.@PrefixText": "Включено?",
   "text.autoconfig.viewmodel.option.enabled": "Влиять на предметы?",
   "text.autoconfig.viewmodel.option.scale.@PrefixText": "Размер предметов",
@@ -29,5 +30,10 @@
   "text.autoconfig.viewmodel.option.positionArmX.@PrefixText": "Позиция Руки",
   "text.autoconfig.viewmodel.option.positionArmX": "Позиция руки по X",
   "text.autoconfig.viewmodel.option.positionArmY": "Позиция руки по Y",
-  "text.autoconfig.viewmodel.option.positionArmZ": "Позиция руки по Z"
+  "text.autoconfig.viewmodel.option.positionArmZ": "Позиция руки по Z",
+  "text.autoconfig.viewmodel.option.enabledSpecial.@PrefixText": "Включить специальные настройки?",
+  "text.autoconfig.viewmodel.option.enabledSpecial": "Включить?",
+  "text.autoconfig.viewmodel.option.nohands.@PrefixText": "Специальные настройки",
+  "text.autoconfig.viewmodel.option.nohands": "Отключить отображение рук",
+  "text.autoconfig.viewmodel.option.hand1f": "Отключить отображение худ'а"
 }
