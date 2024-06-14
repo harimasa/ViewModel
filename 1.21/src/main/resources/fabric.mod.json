@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "viewmodel",
+	"version": "${version}",
+	"name": "ViewModel",
+	"description": "A mod that allows you to independently change the position, scale, rotation of objects in your hands!",
+	"authors": [
+		"femboyPig"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/view-model",
+		"sources": "https://github.com/femboyPig/ViewModel",
+		"issues": "https://github.com/femboyPig/ViewModel/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/viewmodel/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ru.femboypig.ViewModel"
+		],
+		"modmenu": [
+			"ru.femboypig.config.Modmenu"
+		]
+	},
+	"mixins": [
+		"viewmodel.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.10",
+		"minecraft": "~1.21",
+		"java": ">=17",
+		"fabric-api": "*",
+		"modmenu": "*",
+		"yet_another_config_lib_v3": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

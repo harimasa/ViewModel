@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "viewmodel",
+	"version": "${version}",
+	"name": "ViewModel",
+	"description": "A mod that allows you to independently change the position, scale, rotation of objects in your hands!",
+	"authors": [
+		"deadlyPig"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/view-model",
+		"sources": "https://github.com/deadlyPig/ViewModel",
+		"issues": "https://github.com/deadlyPig/ViewModel/issues"
+	},
+	"license": "All-Rights-Reserved",
+	"icon": "assets/viewmodel/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ru.matt.ViewModel"
+		],
+		"modmenu": [
+			"ru.matt.api.ModMenuScreen"
+		]
+	},
+	"mixins": [
+		"viewmodel.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"cloth-config": ">=11.1.118",
+		"modmenu": ">=7.2.2"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
