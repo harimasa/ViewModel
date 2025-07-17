@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "viewmodel",
+	"version": "${version}",
+	"name": "ViewModel",
+	"description": "A mod that allows you to independently change the position, scale, rotation of objects in your hands!",
+	"authors": [
+		"harimasa"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/view-model",
+		"sources": "https://github.com/harimasa/ViewModel",
+		"issues": "https://github.com/harimasa/ViewModel/issues"
+	},
+	"license": "MIT License",
+	"icon": "assets/viewmodel/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ru.harimasa.ViewModel"
+		],
+		"modmenu": [
+			"ru.harimasa.viewmodel.config.Modmenu"
+		]
+	},
+	"mixins": [
+		"viewmodel.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.6",
+		"java": ">=21",
+		"fabric-api": "*",
+		"modmenu": "*",
+		"yet_another_config_lib_v3": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
