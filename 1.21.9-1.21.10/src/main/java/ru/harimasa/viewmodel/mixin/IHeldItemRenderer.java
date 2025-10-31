@@ -7,6 +7,12 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(HeldItemRenderer.class)
 public interface IHeldItemRenderer {
+	@Accessor("equipProgressMainHand")
+	float getEquippedProgressMainHand();
+
+	@Accessor("equipProgressOffHand")
+	float getEquippedProgressOffHand();
+
 	@Accessor(value="equipProgressMainHand")
 	void setEquippedProgressMainHand(float var1);
 

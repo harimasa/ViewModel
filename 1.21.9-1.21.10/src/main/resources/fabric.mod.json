@@ -14,7 +14,7 @@
 	},
 	"license": "MIT License",
 	"icon": "assets/viewmodel/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"ru.harimasa.viewmodel.ViewModel"

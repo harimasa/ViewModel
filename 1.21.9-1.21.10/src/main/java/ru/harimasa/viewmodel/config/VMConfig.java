@@ -35,6 +35,19 @@ public class VMConfig {
     @SerialEntry public float rotOffY = 0f;
     @SerialEntry public float rotOffZ = 0f;
 
+    @SerialEntry
+    public boolean affectArm = false;
+
+    // Arm Position
+    @SerialEntry public float posArmX = 0f;
+    @SerialEntry public float posArmY = 0f;
+    @SerialEntry public float posArmZ = 0f;
+
+    // Arm Rotation
+    @SerialEntry public float rotArmX = 0f;
+    @SerialEntry public float rotArmY = 0f;
+    @SerialEntry public float rotArmZ = 0f;
+
     // Swing Animation
     @SerialEntry
     public boolean animEnable = false;

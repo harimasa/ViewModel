@@ -25,6 +25,22 @@
   "viewmodel.category.general.rotZ": "Ротация по оси Z",
   "viewmodel.category.general.rotZ.desc": "Ротация объектов по оси Z",
 
+  "viewmodel.category.arm": "Arm",
+  "viewmodel.category.arm.enable": "Влиять на руку?",
+  "viewmodel.category.arm.enable.desc": "Включить или отключить влияние на руку",
+  "viewmodel.category.arm.posArmX": "Позиция по оси X",
+  "viewmodel.category.arm.posArmX.desc": "Позиция руки по оси X",
+  "viewmodel.category.arm.posArmY": "Позиция по оси Y",
+  "viewmodel.category.arm.posArmY.desc": "Позиция руки по оси Y",
+  "viewmodel.category.arm.posArmZ": "Позиция по оси Z",
+  "viewmodel.category.arm.posArmZ.desc": "Позиция руки по оси Z",
+  "viewmodel.category.arm.rotArmX": "Ротация по оси X",
+  "viewmodel.category.arm.rotArmX.desc": "Ротация руки по оси X",
+  "viewmodel.category.arm.rotArmY": "Ротация по оси Y",
+  "viewmodel.category.arm.rotArmY.desc": "Ротация руки по оси Y",
+  "viewmodel.category.arm.rotArmZ": "Ротация по оси Z",
+  "viewmodel.category.arm.rotArmZ.desc": "Ротация руки по оси Z",
+
   "viewmodel.category.swinganimation.enable": "Включить Swing Animations?",
   "viewmodel.category.swinganimation.enabled.desc": "Включить или выключить swing animations",
   "viewmodel.category.swinganimation.slowEnable": "Включить замедленные анимации?",
@@ -34,5 +50,5 @@
   "viewmodel.category.swinganimation.templates": "Шаблоны для swing animation",
 
   "category.viewmodel": "View Model",
-  "key.viewmodel.openscreen": "Открыть экран настройки меню"
+  "key.category.minecraft.category.viewmodel": "Открыть экран настройки меню"
 }

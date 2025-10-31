@@ -25,6 +25,22 @@
   "viewmodel.category.general.rotZ": "Rotation Z axis",
   "viewmodel.category.general.rotZ.desc": "The rotation of objects on the Z axis",
 
+  "viewmodel.category.arm": "Arm",
+  "viewmodel.category.arm.enable": "Affect Arm?",
+  "viewmodel.category.arm.enable.desc": "Enable or disable affect on Arm",
+  "viewmodel.category.arm.posArmX": "Position X axis",
+  "viewmodel.category.arm.posArmX.desc": "The position of arm on the X axis",
+  "viewmodel.category.arm.posArmY": "Position Y asix",
+  "viewmodel.category.arm.posArmY.desc": "The position of arm on the Y axis",
+  "viewmodel.category.arm.posArmZ": "Position Z axis",
+  "viewmodel.category.arm.posArmZ.desc": "The position of arm on the Z axis",
+  "viewmodel.category.arm.rotArmX": "Rotation X axis",
+  "viewmodel.category.arm.rotArmX.desc": "The rotation of arn on the X axis",
+  "viewmodel.category.arm.rotArmY": "Rotation Y axis",
+  "viewmodel.category.arm.rotArmY.desc": "The rotation of arm on the Y axis",
+  "viewmodel.category.arm.rotArmZ": "Rotation Z axis",
+  "viewmodel.category.arm.rotArmZ.desc": "The rotation of arm on the Z axis",
+
   "viewmodel.category.swinganimation.enable": "Enabled Swing Animations?",
   "viewmodel.category.swinganimation.enabled.desc": "Enable or disable the swing animations",
   "viewmodel.category.swinganimation.slowEnable": "Enable slow animations?",
@@ -34,5 +50,5 @@
   "viewmodel.category.swinganimation.templates": "Templates for swing animation",
 
   "category.viewmodel": "View Model",
-  "key.viewmodel.openscreen": "Open menu config screen"
+  "key.category.minecraft.category.viewmodel": "Open menu config screen"
 }

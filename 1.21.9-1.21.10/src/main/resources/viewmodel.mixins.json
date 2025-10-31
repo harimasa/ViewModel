@@ -5,7 +5,8 @@
 	"mixins": [
 		"MixinHeldItemRenderer",
 		"IHeldItemRenderer",
-		"MixinLivingEntity"
+		"MixinLivingEntity",
+		"MixinClientTickAnimations"
 	],
 	"injectors": {
 		"defaultRequire": 1

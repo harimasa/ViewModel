@@ -1,6 +1,5 @@
 package ru.harimasa.viewmodel.mixin;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.item.HeldItemRenderer;
@@ -22,8 +21,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import ru.harimasa.viewmodel.config.VMScreen;
 
-import java.util.Objects;
-
 @Mixin(HeldItemRenderer.class)
 public abstract class MixinHeldItemRenderer {
     @Shadow
@@ -36,17 +33,30 @@ public abstract class MixinHeldItemRenderer {
     public void onRenderItem(AbstractClientPlayerEntity player, float tickProgress, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, OrderedRenderCommandQueue orderedRenderCommandQueue, int light, CallbackInfo ci) {
         matrices.push();
         if (VMScreen.CONFIG.instance().enable) {
-            if (hand == Hand.MAIN_HAND) {
-                matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(VMScreen.CONFIG.instance().rotMainX));
-                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(VMScreen.CONFIG.instance().rotMainY));
-                matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(VMScreen.CONFIG.instance().rotMainZ));
-                matrices.translate(VMScreen.CONFIG.instance().posMainX, VMScreen.CONFIG.instance().posMainY, VMScreen.CONFIG.instance().posMainZ);
-            } else {
-                matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(VMScreen.CONFIG.instance().rotOffX));
-                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(VMScreen.CONFIG.instance().rotOffY));
-                matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(VMScreen.CONFIG.instance().rotOffZ));
-                matrices.translate(VMScreen.CONFIG.instance().posOffX, VMScreen.CONFIG.instance().posOffY, VMScreen.CONFIG.instance().posOffZ);
+            if (VMScreen.CONFIG.instance().affectArm || !item.isEmpty()) {
+                if (hand == Hand.MAIN_HAND) {
+                    matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(VMScreen.CONFIG.instance().rotMainX));
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(VMScreen.CONFIG.instance().rotMainY));
+                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(VMScreen.CONFIG.instance().rotMainZ));
+                    matrices.translate(VMScreen.CONFIG.instance().posMainX, VMScreen.CONFIG.instance().posMainY, VMScreen.CONFIG.instance().posMainZ);
+                } else {
+                    matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(VMScreen.CONFIG.instance().rotOffX));
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(VMScreen.CONFIG.instance().rotOffY));
+                    matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(VMScreen.CONFIG.instance().rotOffZ));
+                    matrices.translate(VMScreen.CONFIG.instance().posOffX, VMScreen.CONFIG.instance().posOffY, VMScreen.CONFIG.instance().posOffZ);
+                }
             }
+        }
+    }
+
+    @Inject(method = "renderFirstPersonItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/HeldItemRenderer;renderArmHoldingItem(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/command/OrderedRenderCommandQueue;IFFLnet/minecraft/util/Arm;)V"))
+    private void onRenderArm(AbstractClientPlayerEntity player, float tickProgress, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, OrderedRenderCommandQueue orderedRenderCommandQueue, int light, CallbackInfo ci) {
+        matrices.push();
+        if (VMScreen.CONFIG.instance().affectArm) {
+            matrices.translate(VMScreen.CONFIG.instance().posArmX, VMScreen.CONFIG.instance().posArmY, VMScreen.CONFIG.instance().posArmZ);
+            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(VMScreen.CONFIG.instance().rotArmX));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(VMScreen.CONFIG.instance().rotArmY));
+            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(VMScreen.CONFIG.instance().rotArmZ));
         }
     }
 
@@ -118,7 +128,6 @@ public abstract class MixinHeldItemRenderer {
                 translateToViewModelOff(matrices);
                 applySwingOffset(matrices, arm, swingProgress);
                 translateBackOff(matrices);
-                onUpdate();
                 break;
             case Alternative:
                 applyEquipOffset(matrices, arm, 0);
@@ -186,15 +195,6 @@ public abstract class MixinHeldItemRenderer {
         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees((float) i * g * -20.0F));
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(g * -80.0F));
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float) i * -45.0F));
-    }
-
-    @Unique
-    public void onUpdate() {
-        ((IHeldItemRenderer) MinecraftClient.getInstance().getEntityRenderDispatcher().getHeldItemRenderer()).setEquippedProgressMainHand(1f);
-        ((IHeldItemRenderer) MinecraftClient.getInstance().getEntityRenderDispatcher().getHeldItemRenderer()).setItemStackMainHand(Objects.requireNonNull(MinecraftClient.getInstance().player).getMainHandStack());
-
-        ((IHeldItemRenderer) MinecraftClient.getInstance().getEntityRenderDispatcher().getHeldItemRenderer()).setEquippedProgressOffHand(1f);
-        ((IHeldItemRenderer) MinecraftClient.getInstance().getEntityRenderDispatcher().getHeldItemRenderer()).setItemStackOffHand(MinecraftClient.getInstance().player.getOffHandStack());
     }
 
     @Unique
